@@ -28,4 +28,7 @@ $routes->group('rh', ['filter' => 'auth'], function($routes) {
 
 $routes->group('admin', ['filter' => 'role:admin'], function($routes) {
     $routes->get('dashboard', 'Auth::adminDashboard');
+    $routes->get('employes', 'Auth::adminEmployes');
+    $routes->post('employes', 'Auth::storeAdminEmploye');
+    $routes->post('employes/(:num)/toggle', 'Auth::toggleAdminEmploye/$1');
 });
