@@ -57,7 +57,7 @@ class Database extends Config
         * @var array<string, mixed>
         */
        public array $default = [
-           'database'    => 'rh_interne.db',
+           'database'    => '/home/harena/Documents/ITU/S4/Système d’information/RHInterne/rh_interne.db',
            'DBDriver'    => 'SQLite3',
            'DBPrefix'    => '',
            'DBDebug'     => true,
