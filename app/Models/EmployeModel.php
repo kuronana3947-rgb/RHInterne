@@ -1,19 +1,23 @@
 <?php
 
 namespace App\Models;
+
 use CodeIgniter\Model;
 
-class EmployeModel extends Model {
-    protected $table = 'employe';
+class EmployeModel extends Model
+{
+    protected $table = 'employes';
+    protected $primaryKey = 'id';
+    protected $useAutoIncrement = true;
+    protected $returnType = 'array';
+    protected $useSoftDeletes = false;
     protected $allowedFields = ['nom', 'prenom', 'email', 'password', 'role', 'departement_id', 'date_embauche', 'actif'];
-
-    protected $useTimestamps = true;
-    protected $createdField = 'departement_id';
+    protected $useTimestamps = false;
 
     protected $validationRules = [
         'nom' => 'required|min_length[3]',
         'prenom' => 'required|min_length[3]',
-        'email' => 'required|valid_email|is_unique[employe.email]',
+        'email' => 'required|valid_email|is_unique[employes.email]',
         'password' => 'required|min_length[6]',
         'role' => 'required',
         'departement_id' => 'required',
@@ -52,4 +56,19 @@ class EmployeModel extends Model {
             'required' => "L'état d'activité est obligatoire."
         ]
     ];
+
+    public function getDepartements()
+    {
+        $db = \Config\Database::connect();
+        return $db->table('departements')->select('nom')->distinct()->findAll();
+    }
+
+    public function getSoldes()
+    {
+        return $this->select('employes.*, soldes.jours_attribues, soldes.jours_pris, types_conge.libelle')
+            ->join('soldes', 'soldes.employe_id = employes.id')
+            ->join('types_conge', 'types_conge.id = soldes.type_conge_id')
+            ->where('soldes.annee', date('Y'))
+            ->findAll();
+    }
 }
