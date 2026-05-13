@@ -7,7 +7,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('login');
+        return view('auth/login');
     }
 
     public function login() {
@@ -18,7 +18,7 @@ class Home extends BaseController
         $user = $model->where('email', $email)->first();
 
         if (!$user || $user['password'] !== $password) {
-            return redirect()->to('/')->with('error', 'Nom d’utilisateur ou mot de passe incorrect.');
+            return redirect()->to('/auth/login')->with('error', 'Nom d’utilisateur ou mot de passe incorrect.');
         }
 
         session()->set('user', [
@@ -27,7 +27,6 @@ class Home extends BaseController
             'role' => $user['role'],
         ]);
 
-        return redirect()->to('/employe/dashboard')->with('success', 'Connexion réussie.');
+        return redirect()->to('/employe/dashboard');
     }
-    
-}
+} 
