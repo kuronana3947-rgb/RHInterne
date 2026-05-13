@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\EmployeModel;
 
-class Home extends BaseController
+class Employe extends BaseController
 {
     public function index(): string
     {
@@ -27,9 +27,7 @@ class Home extends BaseController
             'role' => $user['role'],
         ]);
 
-        
-
-        return redirect()->to('/employe/dashboard');
+        return redirect()->to('/employe/dashboard')->with('success', 'Connexion réussie.');
     }
     
 }
