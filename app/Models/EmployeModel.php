@@ -60,7 +60,12 @@ class EmployeModel extends Model
     public function getDepartements()
     {
         $db = \Config\Database::connect();
-        return $db->table('departements')->select('nom')->distinct()->findAll();
+        return $db->table('departements')
+            ->select('nom')
+            ->distinct()
+            ->orderBy('nom', 'ASC')
+            ->get()
+            ->getResultArray();
     }
 
     public function getSoldes()
