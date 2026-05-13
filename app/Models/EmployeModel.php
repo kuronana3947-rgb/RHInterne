@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class EmployeModel extends Model {
-    protected $table = 'employe';
+    protected $table = 'employes';
     protected $allowedFields = ['nom', 'prenom', 'email', 'password', 'role', 'departement_id', 'date_embauche', 'actif'];
 
     protected $useTimestamps = true;
@@ -13,7 +13,7 @@ class EmployeModel extends Model {
     protected $validationRules = [
         'nom' => 'required|min_length[3]',
         'prenom' => 'required|min_length[3]',
-        'email' => 'required|valid_email|is_unique[employe.email]',
+        'email' => 'required|valid_email|is_unique[employes.email]',
         'password' => 'required|min_length[6]',
         'role' => 'required',
         'departement_id' => 'required',
