@@ -99,6 +99,8 @@ code,pre,.mono{font-family:'DM Mono',monospace}
 .av-green{background:var(--forest2)}
 .av-blue{background:#1a4f7a}
 .av-amber{background:#b8750a}
+.av-slate{background:#5b6572}
+.av-rose{background:#9b4f72}
 .user-name{font-size:.825rem;font-weight:500;color:var(--white);line-height:1.2}
 .user-role{font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em}
 
@@ -162,6 +164,10 @@ code,pre,.mono{font-family:'DM Mono',monospace}
 .td-name{font-weight:500}
 .td-muted{color:var(--muted)}
 .td-mono{font-family:'DM Mono',monospace;font-size:.8rem}
+.solde-badge{display:inline-flex;align-items:center;justify-content:center;min-width:46px;font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;padding:4px 9px;border-radius:999px;border:1px solid transparent}
+.solde-ok{background:var(--mint);color:var(--forest);border-color:#9fd4b8}
+.solde-warn{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-br)}
+.solde-danger{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-br)}
 
 /* ─── BADGES STATUT ─────────────────────── */
 .statut{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:500;padding:4px 9px;border-radius:12px}
@@ -181,6 +187,7 @@ code,pre,.mono{font-family:'DM Mono',monospace}
 .t-maladie{background:var(--info-bg);color:var(--info)}
 .t-special{background:#f0e8fb;color:#5a2d82}
 .t-sans-solde{background:#f1efe8;color:#7a8f80}
+.t-conge{background:var(--mint);color:var(--forest)}
 
 /* ─── ACTION BUTTONS ────────────────────── */
 .action-btns{display:flex;gap:5px;flex-wrap:wrap}
@@ -189,6 +196,8 @@ code,pre,.mono{font-family:'DM Mono',monospace}
 .btn-approve:hover{background:#d5f0e3}
 .btn-refuse{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-br)}
 .btn-refuse:hover{background:#f8dbd8}
+.action-btns .btn-sm{min-width:96px;justify-content:center}
+.action-btns form{display:inline-flex}
 .btn-edit{background:var(--info-bg);color:var(--info);border-color:var(--info-br)}
 .btn-edit:hover{background:#d5e8f7}
 .btn-del{background:var(--cream);color:var(--muted);border-color:var(--border)}
